@@ -93,13 +93,23 @@ with st.form("ADHD_form"):
         if res == 1:
             st.write("The subject is likely to be in the high-risk ADHD group")
             col1.metric("Prediction", "High Risk")
-        else:
+        elif res == 0 and proba >=0.1:
             st.write("The subject is not likely to be in the high-risk ADHD group")
             col1.metric("Prediction", "Low Risk")
-        proba_str = f'{proba:.2f}'
-        col2.metric("Model confidence", float(proba_str))
-        st.write("Model confidence is a value between 0 and 1.")
-        st.write("Higher confidence value means model is highly confident with it's prediction.")
+        else:
+            st.write("Information is not sufficient to make a decision.")
+            col1.metric("Prediction", "Undecided")
+        st.markdown('## ****What Your Prediction Results Mean****')
+        st.markdown('### If the subject is predicted to be in a “high-risk” group')
+        st.markdown('- The model predicted that the subject is highly likely to be in a high-risk group of ADHD.')
+        st.markdown('- The subject should consider consult with a doctor for accurate diagnosis.')
+        st.markdown('### If you are predicted to be in a “low-risk” group')
+        st.markdown('- The model predicted that the subject is less likely to be in a high-risk group of ADHD.')
+        st.markdown('- But the test does not rule out that the subject is not in a high-risk group of ADHD.')
+        st.markdown('- Consider taking the test once in a quarter. Multiple “low-risk” prediction increases the confidence of prediction.')
+        st.markdown('### If you are predicted to be in a “undecided” group')
+        st.markdown('- The model does not confident with it’s prediction.')
+        st.markdown('- You should consider taking another test.')
                 
 
         
