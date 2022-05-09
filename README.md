@@ -6,7 +6,7 @@ risk of ADHD without requiring hard-to-collect information like biospeciesman.
 - Python >=3.8
 ```
 # Creating conda environment
-conda create -n ADE python=3.9
+conda create -n ADE python=3.8
 
 # Activiate conda environment
 conda activate ADE
