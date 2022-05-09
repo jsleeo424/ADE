@@ -93,7 +93,7 @@ with st.form("ADHD_form"):
         if res == 1:
             st.write("The subject is likely to be in the high-risk ADHD group")
             col1.metric("Prediction", "High Risk")
-        elif res == 0 and proba >=0.1:
+        elif res == 0 and proba >=0.9:
             st.write("The subject is not likely to be in the high-risk ADHD group")
             col1.metric("Prediction", "Low Risk")
         else:
